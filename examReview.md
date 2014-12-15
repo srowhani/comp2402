@@ -410,3 +410,21 @@ Which takes:
 
 	O(1 + min{1,n-i})
 	
+<h4>Memory Efficient Doubly-Linked Lists</h4>
+
+Linked list but each node is a fixed size array of elements.
+
+```
+	get(i), set(i,x)    == O(1+min{i,n-i}/b)
+	add(i,x), remove(i) == O(b+min(i,n-i}/b)
+```
+
+The **space complexity** is measured to be <code>n + O(b + n/b)</code>
+
+Where b represents the block size, and n is the number of elements.
+
+**Wasted Space?**
+
+At most <code>O(b+n/b)</code> space wasted.
+
+<h3>Hash Tables</h3>
