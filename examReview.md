@@ -36,7 +36,7 @@ Integer states how many time the element is repeated.
 
 **or**<br/>
 	
-<code>new Bag \<T, new ArrayList\<T>()\>() </code>
+<code>new Bag \<T, ArrayList\<T>()\>() </code>
 
 
 ArrayList<T> would contain the amount of duplicate elements.
@@ -236,7 +236,7 @@ First, add determines if the index is within the bounds
     }
 ```
 <code>Balance</code> balances the front deque, and the back deque to ensure the elements are evenly
-distributed. It ensures that there are at least <code>n<sub># el</sub>/2</code> elements in each deque.
+distributed. It ensures that there are at least <code>n/2</code> elements in each deque.
 
 ```
  void balance() {
@@ -275,7 +275,7 @@ tell us about the number of add() and remove() operations between two consecutiv
 operations. (See page 39 of <a href='http://cglab.ca/~morin/teaching/2402/notes/arrays-ii.pdf' target='_blank'>arrays-ii.pdf</a>).
 </strong>
 
-There are *at least <code>n/2-1</code>* add or remove operations per balance.
+There are **at least <code>n/2-1</code>** add or remove operations per balance.
 
 This also proves that the total time spent rebalancing is <code>O(m<sub>(number of calls to add and remove)</sub>)</code>
 
@@ -289,12 +289,12 @@ Benefits:
 <li>space complexity of <code>O(size<sup>1/2</sup></code>!</li>
 </ul>
 
-A list that contains *blocks*. Each block is an array, *size being it's corresponding index* in the
+A list that contains **blocks**. Each block is an array, **size being it's corresponding index** in the
 sequence of blocks.
 
 <img src='ras.png'/>
 
-*. If a RootishArrayStack has r blocks, then how many elements can it store?*
+**. If a RootishArrayStack has r blocks, then how many elements can it store?**
 
 ```
 	let:
@@ -304,7 +304,7 @@ sequence of blocks.
  
 ```
 
-As seen here in this image
+As seen here in this image,
 
 <img src='scra.png'/>
 
