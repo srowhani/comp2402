@@ -24,7 +24,9 @@ Storing students merely for the purpose of checking if the data structure contai
 Having an ordered, quick to find structure would be the SortedSet interface
 
 5. 
-Information associated with each student? Use a SortedMap
+**Information associated with each student? **
+
+Use a SortedMap
 
 6.
 Two ways to accomplish a bag would be through:
@@ -32,7 +34,7 @@ Two ways to accomplish a bag would be through:
 <code>new Bag \<Integer, T\>()</code><br/>
 Integer states how many time the element is repeated.
 
-<strong>or</strong><br/>
+**or**<br/>
 	
 <code>new Bag \<T, new ArrayList\<T>()\>() </code>
 
@@ -53,14 +55,12 @@ The set interface is actually uses the Map Interface. That's how it's able to do
 You take the given value, you convert it to a key using <code>hashCode</code> function and the set uses this hashcode
 to check if it contains said element.
 
-2. 
-Benefits of a <code>LinkedHashSet</code> over a <code>HashSet</code>?
+**Benefits of a <code>LinkedHashSet</code> over a <code>HashSet</code>?**
 
 The LHS has all the benefits of a HashSet, being able to do quick lookups, and store unique values. 
 But the LinkedList in it also allows it to maintain order of entry.
 
-3. 
-Running time of <code>get(i) && set(i,x)</code> for an ArrayList vs. a LinkedList?
+**Running time of <code>get(i) && set(i,x)</code> for an ArrayList vs. a LinkedList?**
 
 get:
 ArrayList: O(1). Just return the value at the array's index.
@@ -83,9 +83,11 @@ This works out to <code>O(1 + n - i)<sup>A</sup></code>
 
 <sup>A</sup> denotes Amortized. Meaning this ignores the cost to resize.
 
-DLL: <code>O(1 + min(i, n-i))</code>. 
+```
+	DLL: O(1 + min(i, n-i))
 
-SLL: <code>O(1 + i)</code>
+	SLL: O(1 + i)
+```
 
 5. 
 
@@ -114,7 +116,7 @@ of storing the elements without excessively wasting memory.
 If you are currently growing the backing array, then the number of add and remove operations...
 
 
-<strong>Lemma 2..1</strong>  If an empty ArrayStack is created and any sequence of 'm' calls to <code>add(i,x)</code> and <code>remove(i)</code> are performed, then the total time spent during all calls to  <code>resize</code>is <code>O(m)</code>
+**Lemma 2.1**  If an empty ArrayStack is created and any sequence of 'm' calls to <code>add(i,x)</code> and <code>remove(i)</code> are performed, then the total time spent during all calls to  <code>resize</code>is <code>O(m)</code>
 
 The amortized time for add and rmeove as a product of <code>i</code><sub>calls to resize</sub> is
 <code>n<sub>i</sub>/2-1</code>
@@ -139,7 +141,7 @@ This looks something like this:
 To ensure we don't surpass the length of the array.
 
 
-1. Describe, in words, how to perform an add(i,x) operation (a) if i < n/2 and (b) if i >= n/2
+**Describe, in words, how to perform an add(i,x) operation (a) if i < n/2 and (b) if i >= n/2**
 
 
 ```
@@ -168,16 +170,15 @@ Case 2: i >= n/2
 
 Set each value of a to be its the element before it. Which essentially shifts all the elements right.
 
-2.
-Running time of add(i,x) and remove(i)
+**Running time of add(i,x) and remove(i)**
 
 O(1+min(i,n-1)) for each operation
 
-3. Why can't we use <code>System.arraycopy()</code>
+**Why can't we use <code>System.arraycopy()</code>**
 
 Because the cursor! We can't perform the same sort of looping arithmitic with that function.
 
-4. Explain why, using an example, if a.length is a power of 2 then <code>(x mod a.length) == (x & (a.length-1))</code>. Why is this relevant when discussing ArrayDeques
+**Explain why, using an example, if a.length is a power of 2 then <code>(x mod a.length) == (x & (a.length-1))</code>. Why is this relevant when discussing ArrayDeques**
 
 Lets work it out
 
