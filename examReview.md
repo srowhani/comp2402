@@ -29,12 +29,12 @@ Information associated with each student? Use a SortedMap
 6.
 Two ways to accomplish a bag would be through:
 <br/>
-<code>new Bag \<Integer, T>()</code><br/>
+<code>new Bag \<Integer, T\>()</code><br/>
 Integer states how many time the element is repeated.
 
 <strong>or</strong><br/>
 	
-<code>new Bag \<T, new ArrayList<T>>() </code>
+<code>new Bag \<T, new ArrayList\<T>()\>() </code>
 
 
 ArrayList<T> would contain the amount of duplicate elements.
@@ -213,4 +213,6 @@ And Operation:
 	  00000001 ! correct
 
 That's it. It's mathematically sound. Prove me wrong!
+
+For more info on this optimization, see this <a href='http://blog.teamleadnet.com/2012/07/faster-division-and-modulo-operation.html' target='_blank'>**article**</a>
 
