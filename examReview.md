@@ -113,4 +113,4 @@ of storing the elements without excessively wasting memory.
 3. If you are currently growing the backing array, then the number of add and remove operations...
 
 
-<strong>Lemma 2..1</strong>  If an empty ArrayStack is created and any sequence of $ m\ge 1$ calls to <code>add(i,x)</code> and  $ <code>remove(i)</code> are performed, then the total time spent during all calls to  <code>resize</code>is <code>O(m)</code>
+<strong>Lemma 2..1</strong>  If an empty ArrayStack is created and any sequence of 'm' calls to <code>add(i,x)</code> and  $ <code>remove(i)</code> are performed, then the total time spent during all calls to  <code>resize</code>is <code>O(m)</code>
