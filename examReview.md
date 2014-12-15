@@ -100,7 +100,7 @@ Questions about the List Interface
 
 <h3>ArrayStacks</h3>
 1.
-<a href='#runtimes'>Runtime Complexity of <code>get</code> and <code>set</code></a>
+<a href='#runtimes'>Runtime Complexity of <code>get</code> and <code>set</code></a><br/>
 ArrayStacks are essentially just Arrays with bells and whistles. 
 2.
 ArrayStacks resize when:
@@ -112,5 +112,16 @@ of storing the elements without excessively wasting memory.
 
 3. If you are currently growing the backing array, then the number of add and remove operations...
 
+a)
 
 <strong>Lemma 2..1</strong>  If an empty ArrayStack is created and any sequence of 'm' calls to <code>add(i,x)</code> and  $ <code>remove(i)</code> are performed, then the total time spent during all calls to  <code>resize</code>is <code>O(m)</code>
+
+
+b)
+
+See Lemma 2.1
+
+4.
+
+The totals calls to add(i,x) or remove(i) copied by grow() and shrink(), encapsulated by resize, is <strong>at least <code>n<sub>i</sub>/2 -1</code> calls to add or remove. Which also means at most 
+
