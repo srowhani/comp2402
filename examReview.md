@@ -3,7 +3,8 @@
 
 **Textbook can be found <a href='http://opendatastructures.org/' target='_blank'>here</a>.**
 
-Questions can be found here:<br/>
+**Questions can be found here:**
+
 http://cglab.ca/~morin/teaching/2402/notes/questions.pdf<br/>
 http://cglab.ca/~morin/teaching/2402/notes/questions2.pdf
 
