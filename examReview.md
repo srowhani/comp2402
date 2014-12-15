@@ -141,7 +141,7 @@ To ensure we don't surpass the length of the array.
 
 1. Describe, in words, how to perform an add(i,x) operation (a) if i < n/2 and (b) if i >= n/2
 
-<code>
+
 
 	if (i < n/2) {// shift a[0],..,a[i-1] left one position
 	
@@ -157,7 +157,7 @@ To ensure we don't surpass the length of the array.
 			a[j+k] = a[j+k-1];
 		
 	}
-</code>
+
 
 Case 1: i < n/2
 
