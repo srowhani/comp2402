@@ -217,3 +217,94 @@ That's it. It's mathematically sound. Prove me wrong!
 
 For more info on this optimization, see this <a href='http://blog.teamleadnet.com/2012/07/faster-division-and-modulo-operation.html' target='_blank'>**article**</a>
 
+<h3>DualArrayDeques</h3>
+Benefits over a ArrayDeque?
+
+*none*
+
+*How are elements<sub>{1..n-1}</sub> distributed?*
+
+First, add determines if the index is within the bounds
+```
+   void add(int i, T x) {
+        if (i < front.size()) { 
+            front.add(front.size()-i, x);
+        } else {
+            back.add(i-front.size(), x);
+        }
+        balance();
+    }
+```
+<code>Balance</code> balances the front deque, and the back deque to ensure the elements are evenly
+distributed. It ensures that there are at least <code>n<sub># el</sub>/2</code> elements in each deque.
+
+```
+ void balance() {
+        int n = size();
+        if (3*front.size() < back.size()) {
+            int s = n/2 - front.size();
+            List<T> l1 = newStack();
+            List<T> l2 = newStack();
+            l1.addAll(back.subList(0,s));
+            Collections.reverse(l1);
+            l1.addAll(front);
+            l2.addAll(back.subList(s, back.size()));
+            front = l1;
+            back = l2;
+        } else if (3*back.size() < front.size()) {
+            int s = front.size() - n/2;
+            List<T> l1 = newStack();
+            List<T> l2 = newStack();
+            l1.addAll(front.subList(s, front.size()));
+            l2.addAll(front.subList(0, s));
+            Collections.reverse(l2);
+            l2.addAll(back);
+            front = l1;
+            back = l2;
+        }
+    }
+```
+Because of this our runtime's become more complicated. They can be broken down into three cases.
+
+<img src='dadr.png'/>
+
+<strong>
+Recall that we rebalance the elements among front and back when front.size() x 3 < back.size()
+or vice versa. After we rebalance, we have front.size() == back.size() ± 1. What does this
+tell us about the number of add() and remove() operations between two consecutive rebalancing
+operations. (See page 39 of <a href='http://cglab.ca/~morin/teaching/2402/notes/arrays-ii.pdf' target='_blank'>arrays-ii.pdf</a>).
+</strong>
+
+There are *at least <code>n/2-1</code>* add or remove operations per balance.
+
+This also proves that the total time spent rebalancing is <code>O(m<sub>(number of calls to add and remove)</sub>)</code>
+
+<h3>RootishArrayStacks</h3>
+More information <a href='http://cglab.ca/~morin/teaching/2402/notes/arrays-iii.pdf' target='_blank'>here</a>
+
+Benefits:
+<ul>
+<li>constant time get and set</li>
+<li>add and remove in linear time</li>
+<li>space complexity of <code>O(size<sup>1/2</sup></code>!</li>
+</ul>
+
+A list that contains *blocks*. Each block is an array, *size being it's corresponding index* in the
+sequence of blocks.
+
+<img src='ras.png'/>
+
+*. If a RootishArrayStack has r blocks, then how many elements can it store?*
+
+```
+	let:
+		n = number of elements
+		r = number of blocks
+ 	n => [r * (r + 1)] / 2
+ 
+```
+
+As seen here in this image
+
+<img src='scra.png'/>
+
