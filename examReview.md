@@ -1,5 +1,8 @@
 <div>
 <h1>Exam Review</h1>
+
+**Textbook can be found <a href='http://opendatastructures.org/' target='_blank'>here</a>.**
+
 Questions can be found here:<br/>
 http://cglab.ca/~morin/teaching/2402/notes/questions.pdf<br/>
 http://cglab.ca/~morin/teaching/2402/notes/questions2.pdf
@@ -357,7 +360,7 @@ Because SLL can only iterate from the beginning, and deques perform operations o
 
 These are the **default implementation of LinkedLists** in Java
 
-**Purpose of a dummy node? **
+**Purpose of a dummy node?**
 
 Quick access to both the head and the tail.
 
