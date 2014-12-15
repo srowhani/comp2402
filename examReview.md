@@ -99,4 +99,18 @@ For an ArrayList, adding to the middle will require O(1 + n - n/2) operations pe
 Questions about the List Interface
 
 <h3>ArrayStacks</h3>
+1.
 <a href='#runtimes'>Runtime Complexity of <code>get</code> and <code>set</code></a>
+ArrayStacks are essentially just Arrays with bells and whistles. 
+2.
+ArrayStacks resize when:
+
+<code>n+1 > a.length</code><br/>
+The reason that we resize the ArrayStack to be double it's previous size, as opposed to just 1 or a constant
+is to find a good balance between the time complexity required to resize the structure, and the space complexity
+of storing the elements without excessively wasting memory.
+
+3. If you are currently growing the backing array, then the number of add and remove operations...
+
+
+<strong>Lemma 2..1</strong>  If an empty ArrayStack is created and any sequence of $ m\ge 1$ calls to <code>add(i,x)</code> and  $ <code>remove(i)</code> are performed, then the total time spent during all calls to  <code>resize</code>is <code>O(m)</code>
