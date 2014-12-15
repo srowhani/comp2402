@@ -1,6 +1,6 @@
 <div>
 <h1>Exam Review</h1>
-Questions can be found here:
+Questions can be found here:<br/>
 http://cglab.ca/~morin/teaching/2402/notes/questions.pdf<br/>
 http://cglab.ca/~morin/teaching/2402/notes/questions2.pdf
 
@@ -99,4 +99,4 @@ For an ArrayList, adding to the middle will require O(1 + n - n/2) operations pe
 Questions about the List Interface
 
 <h3>ArrayStacks</h3>
-</div>
+<a href='#runtimes'>Runtime Complexity of <code>get</code> and <code>set</code></a>
