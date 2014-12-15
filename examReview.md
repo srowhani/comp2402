@@ -36,18 +36,21 @@ The list iterator can also do add, set, and iterate backwards.
 
 <h3>Implementations</h3>
 
-1. Modifying the <code>equals</code> method can have serious implications on how the Set stores data.
+1.
+Modifying the <code>equals</code> method can have serious implications on how the Set stores data.
 The set interface is actually uses the Map Interface. That's how it's able to do lookup's so quickly.
 
 You take the given value, you convert it to a key using <code>hashCode</code> function and the set uses this hashcode
 to check if it contains said element.
 
-2. Benefits of a <code>LinkedHashSet</code> over a <code>HashSet</code>?
+2. 
+Benefits of a <code>LinkedHashSet</code> over a <code>HashSet</code>?
 
 The LHS has all the benefits of a HashSet, being able to do quick lookups, and store unique values. 
 But the LinkedList in it also allows it to maintain order of entry.
 
-3. Running time of <code>get(i) && set(i,x)</code> for an ArrayList vs. a LinkedList?
+3. 
+Running time of <code>get(i) && set(i,x)</code> for an ArrayList vs. a LinkedList?
 
 get:
 ArrayList: O(1). Just return the value at the array's index.
@@ -68,8 +71,21 @@ An arraylist, in worst case would have to resize to make room, them shift all el
 and then it would be able to place the element.
 This works out to <code>O(1 + n - i)<sup>A</sup></code>
 
-The <sup>A</sup> denotes Amortized. Meaning this ignores the cost to resize.
+<sup>A</sup> denotes Amortized. Meaning this ignores the cost to resize.
 
 DLL: <code>O(1 + min(i, n-i))</code>. 
 
 SLL: <code>O(1 + i)</code>
+
+5. 
+
+Time complexity in a linked list is essentially just setting the cursor's position.
+
+Once you've navigated, say to element n/2, there's no problem to add elements there.
+
+For an ArrayList, adding to the middle will require O(1 + n - n/2) operations per <code>add</code> operation.
+
+<h1>Lists as Arrays</h1>
+Questions about the List Interface
+
+<h3>ArrayStacks</h3>
