@@ -308,3 +308,101 @@ As seen here in this image,
 
 <img src='scra.png'/>
 
+**How can we get a specific index?**
+
+Index i doesn't translate to a position inside a block, so we use this:
+
+```
+	int b 	  = 1/2 * (-3 + (9+8i)^1/2)
+	
+	int index = i - b * (b+1)/2
+```
+
+**If a RootishArrayStack contains n elements what is the amount of wasted space?**
+
+<code>remove(i)</code> ensures that there are never more than **two blocks** that are not completely full.
+
+Therefore this struture would satisfy the following equality:
+
+```
+	Let:
+	
+	 r = number of blocks
+	 
+	 n = number of elements
+	
+	    (r-2)(r-1) <= n
+	->  r^2 -3r + 2 <= n
+	->  r <= (3 + (1+4n)^1/2) / 2
+	->  r <= O(n^1/2)
+```
+
+Therefore the total amount of space wasted is at most <code>O(n<sup>1/2</sup>)</code>
+
+<h3>LinkedLists</h3>
+
+<h4>Singly-Linked Lists</h4>
+Self explanatory. Won't go into it too much.
+
+** How quickly can we find the ith node in an SLList?**
+
+At fastest O(i+1)
+
+** Explain why we can’t have an efficient implementation of a Deque as an SLList.**
+
+Because SLL can only iterate from the beginning, and deques perform operations on the back.
+
+
+<h4>Doubly-Linked Lists</h4>
+
+These are the **default implementation of LinkedLists** in Java
+
+**Purpose of a dummy node? **
+
+Quick access to both the head and the tail.
+
+```
+	dummy.next = head
+	dummy.prev = tail
+	
+```
+
+<img src='dnddl.png' />
+
+**Which method is correct?**
+
+```
+	protected Node add(Node u, Node p) {
+		u.next = p;
+		u.prev = p.prev;
+		u.next.prev = u;
+		u.prev.next = u;
+		n++;
+		return u;
+	}
+	protected Node add(Node u, Node p) {
+		u.next = p;
+		u.next.prev = u;
+		u.prev = p.prev;
+		u.prev.next = u;
+		n++;
+		return u;
+	}
+```
+
+
+	u.next.prev = u
+	u.prev = p.prev
+	
+At this point, in the second method, we've set u's previous to be itself.
+
+Therefore the first method is correct.
+
+**Runtime of <code>add</code> and <code>remove</code>?**
+
+Actually adding and removing the elements is constant time. The struggle is in getting there.
+
+Which takes:
+
+	O(1 + min{1,n-i})
+	
