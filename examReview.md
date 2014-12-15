@@ -1,4 +1,14 @@
-<h1>Java Collections Framework</h1>
+<div>
+<h1>Exam Review</h1>
+Questions can be found here:
+http://cglab.ca/~morin/teaching/2402/notes/questions.pdf<br/>
+http://cglab.ca/~morin/teaching/2402/notes/questions2.pdf
+
+<h2>Runtimes</h2>
+<br/>
+<img src='runtimes.png'/>
+
+<h2>Java Collections Framework</h2>
 <h3>Interfaces</h3>
 1.
 A Set is an interface for a data structure that only allows for unique elements, in an unordered collection of said type of elements.
@@ -85,7 +95,8 @@ Once you've navigated, say to element n/2, there's no problem to add elements th
 
 For an ArrayList, adding to the middle will require O(1 + n - n/2) operations per <code>add</code> operation.
 
-<h1>Lists as Arrays</h1>
+<h2>Lists as Arrays</h2>
 Questions about the List Interface
 
 <h3>ArrayStacks</h3>
+</div>
