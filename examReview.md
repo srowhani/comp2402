@@ -148,7 +148,7 @@ To ensure we don't surpass the length of the array.
 **Describe, in words, how to perform an add(i,x) operation (a) if i < n/2 and (b) if i >= n/2**
 
 
-```
+```Java
 	if (i < n/2) {// shift a[0],..,a[i-1] left one position
 	
 		j = (j == 0) ? a.length - 1 : j - 1; //(j-1) mod a.length
@@ -229,7 +229,7 @@ Benefits over a ArrayDeque?
 *How are elements<sub>{1..n-1}</sub> distributed?*
 
 First, add determines if the index is within the bounds
-```
+```Java
    void add(int i, T x) {
         if (i < front.size()) { 
             front.add(front.size()-i, x);
@@ -242,7 +242,7 @@ First, add determines if the index is within the bounds
 <code>Balance</code> balances the front deque, and the back deque to ensure the elements are evenly
 distributed. It ensures that there are at least <code>n/2</code> elements in each deque.
 
-```
+```Java
  void balance() {
         int n = size();
         if (3*front.size() < back.size()) {
