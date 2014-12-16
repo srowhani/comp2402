@@ -428,3 +428,14 @@ Where b represents the block size, and n is the number of elements.
 At most <code>O(b+n/b)</code> space wasted.
 
 <h3>Hash Tables</h3>
+
+<strong>If we place n distinct elements into a hash table of size m using a good hash function, how many
+elements do we expect to find in each table position?</strong>
+
+This phenomenon can be described through **Direchlet's box**, also known as the <a href='http://en.wikipedia.org/wiki/Pigeonhole_principle' target='_blank'>Pidgeonhole Principle</a>
+
+<a href='http://blog.codinghorror.com/hashtables-pigeonholes-and-birthdays/' target='_blank'>Here's</a> a good article that breaks it down even further.
+
+**Recall the multiplicative hash function hash(x) = (x.hashCode() * z) >>> w-d.**
+
+**In 32bit, what is the value of <code>w</code>**
