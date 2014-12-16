@@ -428,7 +428,8 @@ Where b represents the block size, and n is the number of elements.
 At most <code>O(b+n/b)</code> space wasted.
 
 <h3>Hash Tables</h3>
-
+<code>hash(x) = ( (x.hashCode() · z) mod 2<sup>w</sup>) div 2<sup>w−d</sup></code>
+	
 <strong>If we place n distinct elements into a hash table of size m using a good hash function, how many
 elements do we expect to find in each table position?</strong>
 
