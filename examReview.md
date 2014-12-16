@@ -1,5 +1,5 @@
 <div>
-<h1>Exam Review</h1>
+<h1>Exam Review Part 1</h1>
 
 **Textbook can be found <a href='http://opendatastructures.org/' target='_blank'>here</a>.**
 
@@ -438,4 +438,45 @@ This phenomenon can be described through **Direchlet's box**, also known as the 
 
 **Recall the multiplicative hash function hash(x) = (x.hashCode() * z) >>> w-d.**
 
-**In 32bit, what is the value of <code>w</code>**
+**In 32 bit Java, what is the value of <code>w</code>**
+
+32
+
+<strong>How large is the table that is used with this hash function? (In other words, what is the range of
+this hash function?)</strong>
+
+<code>{0..2<sup>w</sup>-1}</code>
+
+**Explain the relationship between an class’ hashCode() method and its equals(o) method.**
+
+**Hashcode** is used to append to the **position in the hash table.**
+
+ex. <code>table[hash(x)].append(x)</code>
+
+**Equals** is used to compare every element that falls under that address.
+
+ex.
+```
+table[hash(x)] = [1,2,3]
+table.get(1) --> table[hash(1)].find(1) [iterates through all elements at this location]
+```
+
+**What's wrong with this hashCode function?**
+
+	public class Point2D {
+		Double x, y;
+		...
+		public int hashCode() {
+			return x.hashCode() ^ y.hashCode();
+		}
+	}
+	
+XOR has a lot of benefits when hashing, but this situation wouldn't highlight those.
+
+For more info on hashing and specifically bitwise XOR hash, click <a href='http://mindprod.com/jgloss/hashcode.html' target='_blank'>here</a>
+
+From that site:
+
+	It ignores order. A ^ B is the same a B ^ A. If order matters, you want some sort of checksum/digest such 	as Adlerian. XOR would not be suitable to compute the hashCode for a List which depends on the order of the 	elements as part of its identity.
+
+So with something like 2D points, it definitely matters. Because **(0,5) is not the same thing as (5,0)**
