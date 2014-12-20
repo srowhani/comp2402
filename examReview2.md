@@ -180,7 +180,7 @@ Find the smallest node in `u`, so the left most node inside of `u.right`, and se
 
 An easy way to show that this will be `O(n)` worst case:
 
-`for (int i = 0 ; i < 10_000 && bst.add(new Node(i) ; i++);`
+`for (int i = 0 ; i < 10_000 || bst.add(new Node(i)) ; i++);`
 
 Will be a long chain of right nodes only.
 
