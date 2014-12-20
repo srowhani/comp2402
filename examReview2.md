@@ -357,7 +357,9 @@ Swaps the last element with the first, and trickles it down as far as it can **w
 The __heapSort(a,c)__ method runs in `O(nlogn)` time and performs at most `2n log n + O(n)` comparisons.
 
 ##Randomized Meldable Heaps
-`add(x)` and `remove()` are implemented in `merge(h1,h2)`.
+`add(x)` and `remove()` are implemented in `O(logn)` expected time per operation
+
+`merge(h1,h2)`.
 
 Compares nodes recursively until it finds a node where h2 is less than h1. And sets h2's parent to be h1. Or vice versa.
 
