@@ -484,6 +484,18 @@ Each node can contain 1, 2, or 3 values.
 
 Each of the childrens positions must fit into the bounds of the other values that the node contains. So The number of values a node contains determines the number of children it will have.
 
+__What happens when we add, and a node, `w`, now has more than 4 children?__
+
+We *split* `w` into two nodes, `w` and `w'`, each having two and three children, respectively. But wait, `w'` has no parent. This process of splitting goes all the way to the top. If the root already has 4, we'll make a new root, and give it the two children of `root` and `root'`
+
+The process of adding a leave takes as long as it takes to __scale the height of the tree.__ Since the tree should always have a depth of `logn`, this should take at most `logn` steps.
+
+__Explain what happens in a 2-4 tree when a deletion causes a node, `w`, to have only one child__
+
+We look at `w`'s sibling. If the sibling has three or four children, we steal one of his kids and make him ours.
+If `w`'s sibling only has two children, we merge them into a single node with three children. Then we remove this sibling that we just merged into from the __parent__, and we recursively repeat this process of killing off children until we can settle at a node with three or four children.
+
+If the root is left with only one child, we delete the root, and make its child the new root.
 
 ###RedBlack Trees
 
