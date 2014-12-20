@@ -357,24 +357,23 @@ Swaps the last element with the first, and trickles it down as far as it can **w
 The __heapSort(a,c)__ method runs in `O(nlogn)` time and performs at most `2n log n + O(n)` comparisons.
 
 ##Randomized Meldable Heaps
-`add(x)` and `remove()` are implemented in `O(logn)` expected time per operation
+`add(x)` and `remove()` are implemented in **`O(logn)` expected time** per operation
 
 `merge(h1,h2)`.
 
-Compares nodes recursively until it finds a node where h2 is less than h1. And sets h2's parent to be h1. Or vice versa.
+Compares nodes recursively until it finds a node where h2 is less than h1. And sets h2's parent to be h1. Or vice versa. Permutations are able to exist, because we traverse nodes, left or right, randomly. Once we go either left or right, we compare the node we've traversed too to the heap we want to meld to. At this point is it decided, by **comparing h1 and h2 to see if h1 is bigger than h2 (heap property states childrens priority must be greater than parents), and flipping the mergee and the merger**
 
 	Node<T> merge(Node<T> h1, Node<T> h2) {
 		if (h1 == nil) return h2;
 		if (h2 == nil) return h1;
-   		if (compare(h2.x, h1.x) < 	0) return merge(h2, h1);
+   		if (compare(h2.x, h1.x) < 0) return merge(h2, h1);
    		// now we know h1.x <= h2.x
    		if (rand.nextBoolean()) {
-     	
    			h1.left = merge(h1.left, h2);
-     		h1.left.parent = h1;
+     			h1.left.parent = h1;
    		} else {
-     		h1.right = merge(h1.right, h2);
-     		h1.right.parent = h1;
+     			h1.right = merge(h1.right, h2);
+     			h1.right.parent = h1;
    		}
 		return h1; 
 	}
