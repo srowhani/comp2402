@@ -361,7 +361,7 @@ The __heapSort(a,c)__ method runs in `O(nlogn)` time and performs at most `2n lo
 
 `merge(h1,h2)`.
 
-Compares nodes recursively until it finds a node where h2 is less than h1. And sets h2's parent to be h1. Or vice versa. Permutations are able to exist, because we traverse nodes, left or right, randomly. Once we go either left or right, we compare the node we've traversed too to the heap we want to meld to. At this point is it decided, by **comparing h1 and h2 to see if h1 is bigger than h2 (heap property states childrens priority must be greater than parents), and flipping the mergee and the merger**
+Compares nodes recursively until it finds a node where h2 is less than h1. And sets h2's parent to be h1. Or vice versa. Permutations are able to exist, because we traverse nodes, left or right, randomly. Once we go either left or right, we compare the node we've traversed too to the heap we want to meld to. At this point is it decided, by **comparing h1 and h2 to see if h1 is bigger than h2 (heap property states childrens priority must be greater than parents), and flipping the mergee and the merger, if so...**
 
 	Node<T> merge(Node<T> h1, Node<T> h2) {
 		if (h1 == nil) return h2;
