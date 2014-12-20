@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <h1>Exam Review Part 2</h1>
 
 **Textbook can be found <a href='http://opendatastructures.org/' target='_blank'>here</a>.**
@@ -158,7 +157,20 @@ For every node, `u`, every data value stored in the subtree at `u.left` is less 
 
 `add` iterates to the bottom of the tree via this search algorithm, and inserts the node on the right or left of __bottom most__ node.
 
-	Node findLast(T x) {   		Node w = r, prev = nil;   		while (w != nil) {    		prev = w;    		int comp = compare(x, w.x);    		if (comp < 0) {      			w = w.left;    		} else if (comp > 0) {      			w = w.right;    		} else {				return w; }		}  		return prev;	}
+	Node findLast(T x) {
+   		Node w = r, prev = nil;
+   		while (w != nil) {
+    		prev = w;
+    		int comp = compare(x, w.x);
+    		if (comp < 0) {
+      			w = w.left;
+    		} else if (comp > 0) {
+      			w = w.right;
+    		} else {
+				return w; }
+		}
+  		return prev;
+	}
 	
 `remove(Node u)`
 
@@ -304,8 +316,20 @@ Both `add` and `remove` take `O(log(n))`
 <img src='heap.png'/>
 `add(u)` will set the last element in the array to be `u`, and sort it by use of `bubbleUp`, which will `swap` nodes based on their __value__.
 
-	boolean add(T x) {   		if (n + 1 > a.length)
-   		resize();  	 	a[n++] = x;   		bubbleUp(n-1);   		return true; 	} 	void bubbleUp(int i) {   		int p = parent(i);   		while (i > 0 && compare(a[i], a[p]) < 0) {    		swap(i,p);     		i = p;     		p = parent(i);		} 
+	boolean add(T x) {
+   		if (n + 1 > a.length)
+   		resize();
+  	 	a[n++] = x;
+   		bubbleUp(n-1);
+   		return true;
+ 	}
+ 	void bubbleUp(int i) {
+   		int p = parent(i);
+   		while (i > 0 && compare(a[i], a[p]) < 0) {
+    		swap(i,p);
+     		i = p;
+     		p = parent(i);
+		} 
 	}
 `remove` will:
 	
@@ -320,7 +344,14 @@ Ignoring the cost of calls to resize(), a BinaryHeap supports the operations __a
 
 Comparison based sorting algorithm, 
 
- 	<T> void sort(T[] a, Comparator<T> c) {   		BinaryHeap<T> h = new BinaryHeap<T>(a, c);   		while (h.n > 1) //h.n = a.length     		h.swap(--h.n, 0);     		h.trickleDown(0);   		}   		Collections.reverse(Arrays.asList(a)); 	}
+ 	<T> void sort(T[] a, Comparator<T> c) {
+   		BinaryHeap<T> h = new BinaryHeap<T>(a, c);
+   		while (h.n > 1) //h.n = a.length
+     		h.swap(--h.n, 0);
+     		h.trickleDown(0);
+   		}
+   		Collections.reverse(Arrays.asList(a));
+ 	}
 Swaps the last element with the first, and trickles it down as far as it can **while maintaining heap property**
 
 The __heapSort(a,c)__ method runs in `O(nlogn)` time and performs at most `2n log n + O(n)` comparisons.
@@ -330,9 +361,20 @@ The __heapSort(a,c)__ method runs in `O(nlogn)` time and performs at most `2n lo
 
 Compares nodes recursively until it finds a node where h2 is less than h1. And sets h2's parent to be h1. Or vice versa.
 
-	Node<T> merge(Node<T> h1, Node<T> h2) {		if (h1 == nil) return h2;
-		if (h2 == nil) return h1;   		if (compare(h2.x, h1.x) < 	0) return merge(h2, h1);   		// now we know h1.x <= h2.x   		if (rand.nextBoolean()) {     	
-   			h1.left = merge(h1.left, h2);     		h1.left.parent = h1;   		} else {     		h1.right = merge(h1.right, h2);     		h1.right.parent = h1;   		}		return h1; 
+	Node<T> merge(Node<T> h1, Node<T> h2) {
+		if (h1 == nil) return h2;
+		if (h2 == nil) return h1;
+   		if (compare(h2.x, h1.x) < 	0) return merge(h2, h1);
+   		// now we know h1.x <= h2.x
+   		if (rand.nextBoolean()) {
+     	
+   			h1.left = merge(h1.left, h2);
+     		h1.left.parent = h1;
+   		} else {
+     		h1.right = merge(h1.right, h2);
+     		h1.right.parent = h1;
+   		}
+		return h1; 
 	}
 	
 ##Sorting
@@ -457,52 +499,3 @@ A black node with the following children:
 		one red, one black (NIL) = 3 children
 		two black = two children
 		
-
-
-
-
-=======
-<h1>Exam Review Part</h1>
-
-<h3>SkipLists</h3>
-SkipList is a data structure that uses <code>Random.nextBoolean()</code> to determine whether
-to create a new list level or just append to the current one.
-
-This image from wikipedia well depicts the process of adding / finding elements
-
-<img src='skiplist.gif'/>
-
-<strong>Explain how the reverse search path is related to the following experiment: Toss a coin
-repeatedly until the first time the coin comes up heads</strong>
-
-It's related in the sense that the number of coin flips before the coin lands heads
-determines the number of nodes that the reverse search path visits.
-
-<i>
-The number of nodes that the reverse search path visits at a particular level,  $ \mathtt{r}$, is related to the following experiment: Toss a coin. If the coin comes up as heads, then move up and stop. Otherwise, move left and repeat the experiment. The number of coin tosses before the heads represents the number of steps to the left that a reverse search path takes at a particular level.4.3 Lemma 4.2 tells us that the expected number of coin tosses before the first heads is 1.
-</i>
-
-<strong> If there are n elements in L0, what is the expected number of elements in L1? What
-about in Li?</strong>
-
-L<sub>i</sub> expects to have <code>i/2<sup>i</sup></code>
-
-After each coin flip, the probability of increasing the level becomes smaller and smaller.
-
-<strong>If there are n elements in L0, give an upper bound on the expected length of the search
-path for any particular element.</strong>
-
-Lemma 4..6   The expected length of a search path in a skiplist is **at most**:
-
-  2logn + O(1)
-  
-<strong> Explain, briefly, how a skiplist can be used to implement the SortedSet interface.
-What are the running times of operations <code>add(x), remove(x), contains(x)</code>?</strong>
-
-Skiplists, when adding or searching for an element check to see, starting from the highest level,
-if what it's searching for is greater or less than that element.
-
-All these operations should take an expected time of <code>O(logn)</code>
-
-
->>>>>>> FETCH_HEAD
