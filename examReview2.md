@@ -174,7 +174,7 @@ For every node, `u`, every data value stored in the subtree at `u.left` is less 
 	
 `remove(Node u)`
 
-Find the smallest node in `u`, so the left most node inside of `u.right`, and set `u=thatNode;` and set `thatNode.parent.left=null` to avoid future problems.
+Find the smallest node in `u`, which is the left-most node inside of `u.right`, and set `u=thatNode;` and set `thatNode.parent.left = null` to __disconnect the original__ `thatNode` to prevent duplicates.
 
 `add`, `remove`, and `find` can all execute in `O(n) time`. This data structure implements the `SSet Interface`. 
 
